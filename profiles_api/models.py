@@ -10,7 +10,7 @@ class UserProfileManager():
     def create_user(self, email, name, password=None):
         """Create a new user profile"""
         if not email:
-            raise ValueError('User mut have an email adress')
+            raise ValueError('User must have an email adress')
 
         email = self.normalize_email(email)
         user = self.model(email=email, name=name)
@@ -49,7 +49,7 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
 
     def get_short_name(self):
         """Retrieve short name of user"""
-        return self.NAME
+        return self.name
 
     def __str__(self):
         """Return string representation of our user"""
